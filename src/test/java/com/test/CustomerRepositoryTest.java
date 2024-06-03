@@ -23,6 +23,7 @@ public class CustomerRepositoryTest {
 
         Customer customer = customers.iterator().next();
         assertThat(customer.getId()).isNotNull();
+        // The following fields should be null because we specify to fetch only the id column
         assertThat(customer.getFirstName()).isNull();
         assertThat(customer.getLastName()).isNull();
     }
@@ -35,6 +36,7 @@ public class CustomerRepositoryTest {
 
         Customer customer = customers.iterator().next();
         assertThat(customer.getId()).isNotNull();
+        // The following fields should not be null because we specify to fetch all columns
         assertThat(customer.getFirstName()).isNotNull();
         assertThat(customer.getLastName()).isNotNull();
     }
